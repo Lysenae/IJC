@@ -20,7 +20,7 @@ int get_word(char *s, int max, FILE *f)
         return EOF;
     }
 
-    char c;
+    char c = '\0';
     int i=0;
     bool max_len_rached = false;
 

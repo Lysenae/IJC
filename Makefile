@@ -62,6 +62,7 @@ wordcount-dynamic: wordcount.o io.o libhtable.so
 	gcc $(CFLAGS) -dynamic wordcount.o io.o libhtable.so -o $@
 
 clean:
+	rm -f *.zip
 	rm -f *.o
 	rm -f *.so
 	rm -f *.a
