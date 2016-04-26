@@ -1,10 +1,21 @@
+// htab_remove.c
+// Riesenie IJC-DU2, príklad 2), 25.4.2016
+// Autor:     Daniel Klimaj, FIT
+// Prelozene: gcc 5.3.0
+// Odstranenie prvku
+
 #include "htable.h"
 
+/**
+ * Odstranenie prvku.
+ * @param ht Hashovacia tabulka
+ * @param key Kluc
+ */
 void htab_remove(Htab *ht, const char *key)
 {
     if(ht == NULL || key == NULL)
     {
-        fprintf(stderr, "htab_remove parameters cannot be NULL\n");
+        fprintf(stderr, "htab_remove: parameters cannot be NULL\n");
         return;
     }
 

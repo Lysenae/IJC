@@ -1,7 +1,7 @@
 // tail.c
 // Riesenie IJC-DU2, príklad 1b), 25.4.2016
 // Autor:     Daniel Klimaj, FIT
-// Prelozene: gcc 4.8.4
+// Prelozene: g++ 5.3.0
 // Program na citanie poslednych n riadkov suboru
 
 #include <iostream>
@@ -12,6 +12,12 @@
 
 using namespace std;
 
+/**
+ * Citanie riadkov.
+ * @param f Subor, z ktoreho sa cita
+ * @param count Maximalny pocet citanych riadkov
+ * @return EXIT_SUCCES v priade uspechu, inak EXIT_FAILURE
+ */
 void read_lines(istream &stream, int count)
 {
     string line;
@@ -37,6 +43,13 @@ void read_lines(istream &stream, int count)
     v.clear();
 }
 
+/**
+ * Otvorenie streamu pre citanie riadkov. Ak je file_name prazdny retazec,
+ * pouzije sa stdin.
+ * @param file_name Nazov suboru
+ * @param count Maximalny pocet citanych riadkov
+ * @return EXIT_SUCCES v priade uspechu, inak EXIT_FAILURE
+ */
 int read_stream(string file_name, int count)
 {
     if(file_name == "")
@@ -63,8 +76,16 @@ int read_stream(string file_name, int count)
     return EXIT_SUCCESS;
 }
 
+/**
+ * Main.
+ * @param argc Pocet argumentov
+ * @param argv Zoznam argumentov
+ * @return EXIT_SUCCES v priade uspechu, inak EXIT_FAILURE
+ */
 int main(int argc, char **argv)
 {
+    ios::sync_with_stdio(false);
+
     string file_name;
     int n;
 

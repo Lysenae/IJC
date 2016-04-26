@@ -1,10 +1,22 @@
+// htab_lookup_add.c
+// Riesenie IJC-DU2, príklad 2), 25.4.2016
+// Autor:     Daniel Klimaj, FIT
+// Prelozene: gcc 5.3.0
+// Pridanie alebo zvysenie poctu vyskytov prvku
+
 #include "htable.h"
 
+/**
+ * Pridanie alebo zvysenie poctu vyskytov prvku.
+ * @param ht Hashovacia tabulka
+ * @param key Kluc
+ * @return Pointer na pridany/najdeny prvok alebo NULL
+ */
 HtabListItem *htab_lookup_add(Htab *ht, const char *key)
 {
     if(ht == NULL || key == NULL)
     {
-        fprintf(stderr, "htab_lookup_add parameters cannot be NULL\n");
+        fprintf(stderr, "htab_lookup_add: parameters cannot be NULL\n");
         return NULL;
     }
 

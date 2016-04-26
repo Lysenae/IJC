@@ -1,3 +1,9 @@
+// htable.h
+// Riesenie IJC-DU2, príklad 2), 25.4.2016
+// Autor:     Daniel Klimaj, FIT
+// Prelozene: gcc 5.3.0
+// Hashovaciu tabulka
+
 #ifndef HTABLE_H
 #define HTABLE_H
 
@@ -6,6 +12,7 @@
 #include <string.h>
 
 typedef unsigned (*hash_fun_ptr)(const char*, unsigned);
+typedef void (*htable_foreach_fun)(const char*, unsigned int);
 
 typedef struct htab_listitem
 {
@@ -28,7 +35,7 @@ HtabListItem *htab_lookup_add(Htab *ht, const char *key);
 void htab_remove(Htab *ht, const char *key);
 void htab_clear(Htab *ht);
 void htab_free(Htab *ht);
-
+void htab_foreach(Htab *ht, htable_foreach_fun func);
 
 unsigned hash_function(const char *key, unsigned htab_size);
 
