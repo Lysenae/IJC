@@ -36,9 +36,7 @@ void read_lines(istream &stream, int count)
 
     for(int i=(lines-count); i<lines; i++)
     {
-        cout << v[i];
-        if(i+1 != lines)
-            cout << endl;
+        cout << v[i] << endl;
     }
     v.clear();
 }
@@ -106,7 +104,7 @@ int main(int argc, char **argv)
             {
                n = stoi(string(argv[2]));
             }
-            catch(const invalid_argument& ia)
+            catch(...)
             {
                 cerr << "Invalid format of number of lines" << endl;
                 return EXIT_FAILURE;

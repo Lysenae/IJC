@@ -109,17 +109,23 @@ int read_lines(FILE *f, int count)
     StringList sl;
     strInit(&s, NULL);
     slInit(&sl, 0);
-    int rslt;
+    int rslt = EXIT_SUCCESS;
 
     while((c = fgetc(f)) != EOF)
     {
-        rslt = strAppendC(&s, c);
-        if(rslt == EXIT_SUCCESS && c == '\n')
+        if(rslt == EXIT_SUCCESS)
         {
-            rslt = slAppendS(&sl, s);
-            if(rslt == EXIT_SUCCESS)
+            if(c == '\n')
             {
-                rslt = strSet(&s, "");
+                rslt = slAppendS(&sl, s);
+                if(rslt == EXIT_SUCCESS)
+                {
+                    rslt = strSet(&s, "");
+                }
+            }
+            else
+            {
+                rslt = strAppendC(&s, c);
             }
         }
 
@@ -143,7 +149,7 @@ int read_lines(FILE *f, int count)
         for(int i=(lines-count), j=1; i<lines; i++, j++)
         {
             String *tmp = slAt(&sl, i);
-            printf("%s", str(*tmp));
+            printf("%s\n", str(*tmp));
         }
     }
     else

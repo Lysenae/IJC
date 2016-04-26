@@ -1,4 +1,4 @@
-.PHONY: clean
+.PHONY: clean pack
 
 CFLAGS   = -std=c99 -pedantic -g -Wall -Wextra -O2
 CXXFLAGS = -std=c++11 -pedantic -Wall -Wextra -O2
@@ -70,5 +70,5 @@ clean:
 	rm -f wordcount
 	rm -f wordcount-dynamic
 
-pack:
+pack: clean
 	zip xklima22.zip *.c *.cc *.h Makefile
